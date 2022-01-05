@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Card,
   CardBody,
@@ -7,13 +7,9 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
-class DetailedDish extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  renderDish(dish) {
+
+  function RenderDish({dish}) {
     if (dish != null) {
       return (
         <Card>
@@ -29,7 +25,7 @@ class DetailedDish extends Component {
     }
   }
 
-  renderComments(comments) {
+  function RenderComments({comments}) {
     if (comments != null) {
       const cmnts = comments.map(comment => {
           return (
@@ -37,7 +33,7 @@ class DetailedDish extends Component {
              
                 <p>{comment.comment}</p>
                 <p>
-                {comment.author} ,{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                --{comment.author} ,{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                  
                 </p>
             </li>
@@ -58,25 +54,24 @@ class DetailedDish extends Component {
       return <div></div>;
     }
   }
-  render(){
-    const dish = this.props.dish;
+  const DetailedDish = (props)=> {
+    const dish = props.dish;
     
-    if (dish == null) {
+    if (props.dish == null) {
         return (<div></div>);
     }
-
-    const dishItem = this.renderDish(dish);
-    const dishComment = this.renderComments(dish.comments);
-
     return (
       <div className="container">
         <div className='row'>
-            <div className="col-12 col-md-5 m-1">{dishItem}</div>
-            <div className="col-12 col-md-5 m-1">{dishComment}</div>
+            <div className="col-12 col-md-5 m-1">
+              < RenderDish dish = {props.dish}/>
+            </div>
+            <div className="col-12 col-md-5 m-1">
+              <RenderComments comments = {props.dish.comments}/>
+            </div>
         </div>
         </div>
     )
-}
 }
 
 export default DetailedDish;
