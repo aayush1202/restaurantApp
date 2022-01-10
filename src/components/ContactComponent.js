@@ -174,6 +174,7 @@ class Contact extends Component {
                     invalid={errors.firstname !==''}
                     onBlur={this.handleBlur("firstname")}
                     onChange={this.handleInputChange}
+                    className="required"
                   />
                   <FormFeedback>{errors.firstname}</FormFeedback>
                 </Col>
