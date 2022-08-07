@@ -15,12 +15,12 @@
     margin:0px auto;
     padding: 20px 0px 20px 0px;
 }
-#jumbotron {
+/* #jumbotron {
     margin-bottom: 2rem;
     background-color: #9575CD;
     border-radius: .3rem;
     color:floralwhite;
-}
+} */
 
 address{
     font-size:80%;
@@ -31,3 +31,36 @@ address{
 .navbar-dark {
     background-color: #512DA8;
 }
+.container-fluid .jumbotron, .container .jumbotron {
+    border-radius: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  @media screen and (min-width: 768px)
+  {
+  .container-fluid .jumbotron, .container .jumbotron {
+      padding-left: 60px;
+      padding-right: 60px;
+  }
+  }
+  
+  @media screen and (min-width: 768px)
+  {
+  .jumbotron {
+      padding-bottom: 48px;
+      padding-top: 48px;
+  }
+  }
+  
+  .jumbotron {
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin-bottom: 2rem;
+    background-color: #9575CD;
+    border-radius: .3rem;
+    color:floralwhite;
+  }
